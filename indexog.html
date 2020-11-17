@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+<script src="greeting.js"></script>
+<script src="/node_modules/jquery/dist/jquery.js"></script>
+<script src="box1click.js"></script>
+<script type="module" src="ajax.js"></script>
+
+
+</head>
+<body>
+    
+<a-scene embedded style='width:50%; height:600px; border: 1px solid black' shadow="type: basic">
+    
+
+    <a-assets>
+
+        <img id="sky" src="/assets/sky.jpg">
+        <img id="grass" src="/assets/grass.jpg">
+    <a-assets-item src="assets\green-cafe-dobrich.obj"  id="cafe"  ></a-assets-item>
+    <a-assets-item src="assets\green-cafe-dobrich.mtl"  id="cafe-material"  ></a-assets-item>
+        </a-assets>
+
+    <a-plane src=#grass height="1200" width="600" rotation="-90 -20 0" position="0 -5 -20"></a-plane>
+    <a-sky src=#sky></a-sky>
+    <a-entity geometry='primitive: sphere; radius: 1' id='box1' material='color: red' position='0 1 -5' ></a-entity>
+    
+    <a-entity geometry='primitive: box' id='box2' material='color: red' position='10 1 -5'></a-entity>
+
+    <a-entity light="type: ambient; intensity: 0.5;"></a-entity>
+    <a-entity light="type: directional;
+                     castShadow: true;  
+                     intensity: 1.5;
+                     shadowCameraVisible: false;"
+              position="-5 3 1.5"></a-entity>
+
+<a-box height="10" width="10" color="red" rotation="0 0 0" position="15 5 0"  greeting='message: Hello; name: Josh'></a-box >
+    
+    
+    <a-entity dynamic-content-loader></a-entity>
+
+
+
+</a-scene>
+
+    
+Change the box colour: <input id="boxcolour" type="text" />
+<input type="button" id="go" value="go!" />
+    
+   
+    
+Change the box2 colour: <input id="boxcolour2" type="text" />
+<input type="button" id="go2" value="go!" />
+    
+
+
+Change the box height: <input id="boxheight" type="text" />
+<input type="button" id="go3" value="go!" />
+
+Move the box: <input type="range" id="boxmove" min="0" max="360" step="10" value="0" />
+
+Move the box: <input type="range" id="boxmove2" min="0" max="360" step="10" value="0" />
+
+Move the box: <input type="range" id="boxmove3" min="0" max="360" step="10" value="0" />
+
+
+
+    </body>
+</html>
